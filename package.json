@@ -1,0 +1,16 @@
+{
+  "name": "mad-libs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "compass": "^0.1.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "css:compile": "node-sass style/style.scss style/style.css"
+  },
+  "author": "BK",
+  "license": "ISC"
+}
