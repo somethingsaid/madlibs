@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="" lang="en">
+<html ng-app="myApp" lang="en">
 
   <head>
     <script src="https://code.angularjs.org/1.3.10/angular.js"></script>
@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.min.css">
     <link rel="stylesheet" type="text/css" href="style/style.css">
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Mad Libs!</title>
   </head>
 
@@ -17,10 +18,52 @@
     	<div class="title">
     	</div>
     </nav>
-    <section class="user-input">
-    </section>
-    <section class="mad-libs">
-    </section>
+    <div ng-controller="madLibsController">
+        <section class="user-input">
+    	    <h1>Provide the following words:</h1>
+    	    <table align="center">
+    		    <tr>
+    	            <td>
+    	        	    <input ng-model="maleName" placeholder="<male name>" required>
+    	            </td>
+    	            <td>
+    	        	    <input ng-model="dirtyTask" placeholder="<dirty task>" required>
+    	            </td>
+    	            <td>
+    	        	    <input ng-model="obnoxCeleb" placeholder="<obnoxious celebrity>" required>
+    	            </td>
+    	        </tr>
+    		    <tr>
+    	            <td>
+    	        	    <input ng-model="jobTitle" placeholder="<job title>" required>
+    	            </td>
+    	            <td>
+    	        	    <input ng-model="celeb" placeholder="<celebrity>" required>
+    	            </td>
+    	            <td>
+    	        	    <input ng-model="hugeNum" placeholder="<huge number>" required>
+    	            </td>
+    	        </tr>
+    		    <tr>
+    	            <td>
+    	        	    <input ng-model="tediousTask" placeholder="<tedious task>" required>
+    	            </td>
+    	            <td>
+    	        	    <input ng-model="uselessSkill" placeholder="<useless skill>" required>
+    	            </td>
+    	            <td>
+    	        	    <input ng-model="adjective" placeholder="<adjective>" required>
+    	            </td>
+    	        </tr>
+            </table>
+            <hr>
+        </section>
+        <section class="mad-libs">
+    	    <p>
+    		    <em>{{maleName}}</em> was a <em>{{jobTitle}}</em> who loved technology. Although he loved parts of his job, he absolutely hated  <em>{{tediousTask}}</em> and <em>{{dirtyTask}}</em>. So, <em>{{maleName}}</em> met with his life mentor <em>{{celeb}}</em> who told him to learn how to <em>{{uselessSkill}}</em> with Thinkful. Thinkful didn't offer a course on <em>{{uselessSkill}}</em> so he studied programming instead.  What a great decision! With his new skills, <em>{{maleName}}</em> built a(n) <em>{{adjective}}</em> robot named <em>{{obnoxCeleb}}</em> that not only loved <em>{{dirtyTask}}</em> but did it <em>{{hugeNum}}</em> time(s) faster.
+    	    </p>
+        </section>
+    </div>    
   </body>
 
 </html>
