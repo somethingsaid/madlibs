@@ -45,6 +45,9 @@ input {
 input.ng-invalid {
   background-color: lightblue; }
 
+td {
+  text-align: center; }
+
 /* Rendered mad-libs section */
 .mad-libs p {
   width: 80%;
