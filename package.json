@@ -6,10 +6,13 @@
   "dependencies": {
     "compass": "^0.1.1"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "chokidar-cli": "^1.2.0"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "css:compile": "node-sass style/style.scss style/style.css"
+    "css:compile": "node-sass style/style.scss style/style.css",
+    "watch": "chokidar style/style.scss -c 'npm run css:compile'"
   },
   "author": "BK",
   "license": "ISC"

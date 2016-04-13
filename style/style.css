@@ -1,2 +1,38 @@
+/* Variables */
+/* Standard declarations */
+html {
+  box-sizing: border-box; }
+
+*, *:before, *:after {
+  box-sizing: inherit; }
+
+/* Masthead declarations */
+.masthead {
+  width: 100%; }
+
+.smiley, .title {
+  display: inline-block;
+  border: 1px solid #000000;
+  height: 100px;
+  margin: auto; }
+
+.smiley {
+  width: 19%;
+  background-image: url("../images/smiley.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  background-color: #ffffff; }
+
+.title {
+  width: 80%;
+  background-image: url("../images/logo.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #ffffff; }
+
+/* User input section */
 body {
   background: #eeffcc; }
+
+/* Rendered mad-libs section */
