@@ -20,17 +20,24 @@
     </nav>
     <div ng-controller="madLibsController">
         <section class="user-input">
-    	    <h1>Provide the following words:</h1>
+    	    <h1>Please provide the following:</h1>
+    	    <span>Female</span>
+    	    <label class="switch">
+    	    	<input type="checkbox" ng-model="isMale">
+    	    	<div class="slider round"></div>
+    	    </label>
+    	    <span>Male</span>
+    	    <form name="my-form" novalidate>
     	    <table align="center">
     		    <tr>
     	            <td>
-    	        	    <input ng-model="maleName" placeholder="<male name>" required>
+    	        	    <input ng-model="charName" placeholder="<name>" name="charName" required ng-minLength="3">
     	            </td>
     	            <td>
-    	        	    <input ng-model="dirtyTask" placeholder="<dirty task>" required>
+    	        	    <input ng-model="dirtyTask" placeholder="<dirty task>" name="dirtyTask" required>
     	            </td>
     	            <td>
-    	        	    <input ng-model="obnoxCeleb" placeholder="<obnoxious celebrity>" required>
+    	        	    <input ng-model="obnoxCeleb" placeholder="<obnoxious celebrity>" name="obnoxCeleb" required>
     	            </td>
     	        </tr>
     		    <tr>
@@ -56,12 +63,24 @@
     	            </td>
     	        </tr>
             </table>
+            <button ng-click="showMadLibs = !showMadLibs" type="submit">
+            	show mad libs
+            </button>
+            <button ng-click="reset()">
+            	reset
+            </button>
+        </form>
+        <pre>{{ my-form.maleName.$error | json }}</pre>
             <hr>
         </section>
-        <section class="mad-libs">
-    	    <p>
-    		    <em>{{maleName}}</em> was a <em>{{jobTitle}}</em> who loved technology. Although he loved parts of his job, he absolutely hated  <em>{{tediousTask}}</em> and <em>{{dirtyTask}}</em>. So, <em>{{maleName}}</em> met with his life mentor <em>{{celeb}}</em> who told him to learn how to <em>{{uselessSkill}}</em> with Thinkful. Thinkful didn't offer a course on <em>{{uselessSkill}}</em> so he studied programming instead.  What a great decision! With his new skills, <em>{{maleName}}</em> built a(n) <em>{{adjective}}</em> robot named <em>{{obnoxCeleb}}</em> that not only loved <em>{{dirtyTask}}</em> but did it <em>{{hugeNum}}</em> time(s) faster.
+        <section class="mad-libs" ng-if="showMadLibs">
+    	    <p ng-if="isMale">
+    		    <em>{{charName}}</em> was a <em>{{jobTitle}}</em> who loved technology. Although he loved parts of his job, he absolutely hated  <em>{{tediousTask}}</em> and <em>{{dirtyTask}}</em>. So, <em>{{charName}}</em> met with his life mentor <em>{{celeb}}</em> who told him to learn how to <em>{{uselessSkill}}</em> with Thinkful. Thinkful didn't offer a course on <em>{{uselessSkill}}</em> so he studied programming instead.  What a great decision! With his new skills, <em>{{charName}}</em> built a(n) <em>{{adjective}}</em> robot named <em>{{obnoxCeleb}}</em> that not only loved <em>{{dirtyTask}}</em> but did it <em>{{hugeNum}}</em> time(s) faster.
     	    </p>
+    	    <p ng-if="!isMale">
+    		    <em>{{charName}}</em> was a <em>{{jobTitle}}</em> who loved technology. Although she loved parts of her job, she absolutely hated  <em>{{tediousTask}}</em> and <em>{{dirtyTask}}</em>. So, <em>{{charName}}</em> met with her life mentor <em>{{celeb}}</em> who told her to learn how to <em>{{uselessSkill}}</em> with Thinkful. Thinkful didn't offer a course on <em>{{uselessSkill}}</em> so she studied programming instead.  What a great decision! With her new skills, <em>{{charName}}</em> built a(n) <em>{{adjective}}</em> robot named <em>{{obnoxCeleb}}</em> that not only loved <em>{{dirtyTask}}</em> but did it <em>{{hugeNum}}</em> time(s) faster.
+    	    </p>
+
         </section>
     </div>    
   </body>
