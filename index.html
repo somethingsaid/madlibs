@@ -20,7 +20,7 @@
     	</div>
     </nav>
     <div ng-controller="madLibsController">
-        <section class="user-input">
+        <section class="user-input" ng-show="!showMadLibs">
     	    <h1>Please provide the following:</h1>
     	    <span>Female</span>
     	    <label class="switch">
@@ -28,7 +28,7 @@
     	    	<div class="slider round"></div>
     	    </label>
     	    <span>Male</span>
-    	    <form name="myForm" novalidate>
+    	    <form name="myForm" novalidate ng-submit="submit()">
     	    <table align="center">
     		    <tr>
     	            <td>
@@ -64,11 +64,8 @@
     	            </td>
     	        </tr>
             </table>
-            <button ng-click="showMadLibs = !showMadLibs" type="submit">
-            	show mad libs
-            </button>
-            <button ng-click="reset()">
-            	reset
+            <button type="submit">
+            	Generate Mad-Libs
             </button>
         </form>
         <hr>
@@ -76,14 +73,16 @@
         <div ng-if="myForm.$submitted && !myForm.$valid">
         	<p>Please make sure you've provided all the required fields!</p>
         </div>
-        <section class="mad-libs" ng-if="showMadLibs && !myForm.charName.$error.required && !myForm.dirtyTask.$error.required && !myForm.obnoxCeleb.$error.required && !myForm.jobTitle.$error.required && !myForm.celeb.$error.required && !myForm.hugeNum.$error.required && !myForm.tediousTask.$error.required && !myForm.uselessSkill.$error.required && !myForm.adjective.$error.required">
+        <section class="mad-libs" ng-if="showMadLibs">
     	    <p ng-if="isMale">
     		    <em>{{charName}}</em> was a <em>{{jobTitle}}</em> who loved technology. Although he loved parts of his job, he absolutely hated  <em>{{tediousTask}}</em> and <em>{{dirtyTask}}</em>. So, <em>{{charName}}</em> met with his life mentor <em>{{celeb}}</em> who told him to learn how to <em>{{uselessSkill}}</em> with Thinkful. Thinkful didn't offer a course on <em>{{uselessSkill}}</em> so he studied programming instead.  What a great decision! With his new skills, <em>{{charName}}</em> built a(n) <em>{{adjective}}</em> robot named <em>{{obnoxCeleb}}</em> that not only loved <em>{{dirtyTask}}</em> but did it <em>{{hugeNum}}</em> time(s) faster.
     	    </p>
     	    <p ng-if="!isMale">
     		    <em>{{charName}}</em> was a <em>{{jobTitle}}</em> who loved technology. Although she loved parts of her job, she absolutely hated  <em>{{tediousTask}}</em> and <em>{{dirtyTask}}</em>. So, <em>{{charName}}</em> met with her life mentor <em>{{celeb}}</em> who told her to learn how to <em>{{uselessSkill}}</em> with Thinkful. Thinkful didn't offer a course on <em>{{uselessSkill}}</em> so she studied programming instead.  What a great decision! With her new skills, <em>{{charName}}</em> built a(n) <em>{{adjective}}</em> robot named <em>{{obnoxCeleb}}</em> that not only loved <em>{{dirtyTask}}</em> but did it <em>{{hugeNum}}</em> time(s) faster.
     	    </p>
-
+    	    <button ng-click="reset()">
+            	reset
+            </button>
         </section>
     </div>    
   </body>

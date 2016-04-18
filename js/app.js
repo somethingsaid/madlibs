@@ -14,4 +14,14 @@ app.controller('madLibsController', function($scope) {
 		$scope.showMadLibs = false;
 	}
 	$scope.reset();
+
+	$scope.submit = function(){
+        if ($scope.myForm.$valid) {
+        	$scope.showMadLibs = true;
+            console.log("Form is valid");
+        }
+        else {
+        	console.log("Form is invalid");
+        }
+}
 });
