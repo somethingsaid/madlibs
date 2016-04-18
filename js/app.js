@@ -1,7 +1,7 @@
 var app = angular.module('myApp', [])
 app.controller('madLibsController', function($scope) {
 	$scope.reset = function() {
-		$scope.male = false;
+		$scope.isMale = false;
         $scope.charName = null;
 	    $scope.dirtyTask = null;
 	    $scope.obnoxCeleb = null;

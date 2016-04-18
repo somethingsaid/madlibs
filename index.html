@@ -3,6 +3,7 @@
 
   <head>
     <script src="https://code.angularjs.org/1.3.10/angular.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-messages/1.5.5/angular-messages.min.js"></script>
     <script type="text/javascript" src="js/app.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.min.css">
     <link rel="stylesheet" type="text/css" href="style/style.css">
@@ -27,39 +28,39 @@
     	    	<div class="slider round"></div>
     	    </label>
     	    <span>Male</span>
-    	    <form name="my-form" novalidate>
+    	    <form name="myForm" novalidate>
     	    <table align="center">
     		    <tr>
     	            <td>
-    	        	    <input ng-model="charName" placeholder="<name>" name="charName" required ng-minLength="3">
+    	        	    <input type="text" ng-model="charName" placeholder="<name>" name="charName" required>
     	            </td>
     	            <td>
-    	        	    <input ng-model="dirtyTask" placeholder="<dirty task>" name="dirtyTask" required>
+    	        	    <input type="text" ng-model="dirtyTask" placeholder="<dirty task>" name="dirtyTask" required>
     	            </td>
     	            <td>
-    	        	    <input ng-model="obnoxCeleb" placeholder="<obnoxious celebrity>" name="obnoxCeleb" required>
-    	            </td>
-    	        </tr>
-    		    <tr>
-    	            <td>
-    	        	    <input ng-model="jobTitle" placeholder="<job title>" required>
-    	            </td>
-    	            <td>
-    	        	    <input ng-model="celeb" placeholder="<celebrity>" required>
-    	            </td>
-    	            <td>
-    	        	    <input ng-model="hugeNum" placeholder="<huge number>" required>
+    	        	    <input type="text" ng-model="obnoxCeleb" placeholder="<obnoxious celebrity>" name="obnoxCeleb" required>
     	            </td>
     	        </tr>
     		    <tr>
     	            <td>
-    	        	    <input ng-model="tediousTask" placeholder="<tedious task>" required>
+    	        	    <input type="text" ng-model="jobTitle" placeholder="<job title>" required>
     	            </td>
     	            <td>
-    	        	    <input ng-model="uselessSkill" placeholder="<useless skill>" required>
+    	        	    <input type="text" ng-model="celeb" placeholder="<celebrity>" required>
     	            </td>
     	            <td>
-    	        	    <input ng-model="adjective" placeholder="<adjective>" required>
+    	        	    <input type="number" ng-model="hugeNum" placeholder="<huge number>" required>
+    	            </td>
+    	        </tr>
+    		    <tr>
+    	            <td>
+    	        	    <input type="text" ng-model="tediousTask" placeholder="<tedious task>" required>
+    	            </td>
+    	            <td>
+    	        	    <input type="text" ng-model="uselessSkill" placeholder="<useless skill>" required>
+    	            </td>
+    	            <td>
+    	        	    <input type="text" ng-model="adjective" placeholder="<adjective>" required>
     	            </td>
     	        </tr>
             </table>
@@ -70,10 +71,12 @@
             	reset
             </button>
         </form>
-        <pre>{{ my-form.maleName.$error | json }}</pre>
-            <hr>
+        <hr>
         </section>
-        <section class="mad-libs" ng-if="showMadLibs">
+        <div ng-if="myForm.$submitted && !myForm.$valid">
+        	<p>Please make sure you've provided all the required fields!</p>
+        </div>
+        <section class="mad-libs" ng-if="showMadLibs && !myForm.charName.$error.required && !myForm.dirtyTask.$error.required && !myForm.obnoxCeleb.$error.required && !myForm.jobTitle.$error.required && !myForm.celeb.$error.required && !myForm.hugeNum.$error.required && !myForm.tediousTask.$error.required && !myForm.uselessSkill.$error.required && !myForm.adjective.$error.required">
     	    <p ng-if="isMale">
     		    <em>{{charName}}</em> was a <em>{{jobTitle}}</em> who loved technology. Although he loved parts of his job, he absolutely hated  <em>{{tediousTask}}</em> and <em>{{dirtyTask}}</em>. So, <em>{{charName}}</em> met with his life mentor <em>{{celeb}}</em> who told him to learn how to <em>{{uselessSkill}}</em> with Thinkful. Thinkful didn't offer a course on <em>{{uselessSkill}}</em> so he studied programming instead.  What a great decision! With his new skills, <em>{{charName}}</em> built a(n) <em>{{adjective}}</em> robot named <em>{{obnoxCeleb}}</em> that not only loved <em>{{dirtyTask}}</em> but did it <em>{{hugeNum}}</em> time(s) faster.
     	    </p>
