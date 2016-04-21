@@ -1,4 +1,4 @@
-var app = angular.module('myApp', [])
+var app = angular.module('myApp', ['ngAnimate'])
 app.controller('madLibsController', function($scope) {
 	$scope.reset = function() {
 		$scope.isMale = false;

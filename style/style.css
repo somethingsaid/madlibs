@@ -100,6 +100,18 @@ input.ng-invalid {
 td {
   text-align: center; }
 
+.error-msg {
+  -webkit-transition: 1s;
+  -moz-transition: 1s;
+  -o-transition: 1s;
+  transition: all linear 0.5s; }
+
+.error-msg.ng-enter, .error-msg.ng-leave-active {
+  opacity: 0; }
+
+.error-msg.ng-enter-active, .error-msg.ng-leave {
+  opacity: 1; }
+
 /* Rendered mad-libs section */
 .mad-libs p {
   width: 80%;
@@ -109,3 +121,17 @@ em {
   font-weight: bold;
   text-decoration: underline;
   color: coral; }
+
+.malelibs, .femalelibs {
+  -webkit-transition: 1s;
+  -moz-transition: 1s;
+  -o-transition: 1s;
+  transition: all ease-in-out 5s; }
+
+.malelibs.ng-enter, .malelibs.ng-leave-active,
+.femalelibs.ng-enter, .femalelibs.ng-leave-active {
+  height: 0px; }
+
+.malelibs.ng-enter-active, .malelibs.ng-leave,
+.femalelibs.ng-enter-active, .femalelibs.ng-leave {
+  height: 300px; }
