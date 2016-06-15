@@ -1,3 +1,3 @@
 # Mad Libs App
 * uses AngularJS two-way data-binding
-* live: http://somethingsaid.github.io/mad-libs
+* live: http://somethingsaid.github.io/madlibs
